@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tawhidur Rahman — Senior Cybersecurity & AI Governance Specialist. National CIRT operations, digital forensics, incident response.">
+<title>Tawhidur Rahman | Cybersecurity Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --c-ink: #1a1a2e;
+    --c-deep: #16213e;
+    --c-mid: #0f3460;
+    --c-accent: #e94560;
+    --c-teal: #00b4d8;
+    --c-muted: #8892a4;
+    --c-surface: rgba(255,255,255,0.04);
+    --c-border: rgba(255,255,255,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--c-ink);
+    color: #e8eaf0;
+    font-family: 'Syne', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26,26,46,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--c-border);
+    padding: 0 1.5rem;
+  }
+  .nav-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-logo {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--c-teal);
+    letter-spacing: 0.1em;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--c-muted);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #e8eaf0; }
+
+  /* LAYOUT */
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  /* HERO */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 2rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--c-border);
+    margin-bottom: 3rem;
+  }
+  .hero-name {
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: #fff;
+  }
+  .hero-name span { color: var(--c-accent); }
+  .hero-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--c-teal);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0.9rem 0 1.4rem;
+  }
+  .hero-tagline {
+    font-size: 1rem;
+    color: var(--c-muted);
+    max-width: 540px;
+    line-height: 1.75;
+  }
+  .contact-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    text-align: right;
+    padding-top: 0.5rem;
+  }
+  .contact-block a,
+  .contact-block span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--c-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-block a:hover { color: var(--c-teal); }
+
+  /* STATS */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  .stat {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 10px;
+    padding: 1.4rem 1rem;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .stat:hover { border-color: rgba(0,180,216,0.3); }
+  .stat-num {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+  }
+  .stat-num span { color: var(--c-accent); }
+  .stat-label {
+    font-size: 0.68rem;
+    color: var(--c-muted);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-top: 0.45rem;
+  }
+
+  /* SECTION */
+  .section { margin-bottom: 3rem; }
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.4rem;
+  }
+  .sec-line { flex: 1; height: 1px; background: var(--c-border); }
+  .sec-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+    color: var(--c-accent);
+  }
+
+  /* EXPERIENCE */
+  .exp-card {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .exp-card:hover {
+    border-color: rgba(0,180,216,0.25);
+    transform: translateY(-1px);
+  }
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--c-teal);
+    border-radius: 3px 0 0 3px;
+  }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+  }
+  .exp-org { font-size: 1.05rem; font-weight: 500; color: #fff; }
+  .exp-period {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--c-muted);
+    white-space: nowrap;
+    margin-top: 3px;
+  }
+  .exp-role {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--c-teal);
+    margin-bottom: 0.85rem;
+  }
+  .exp-bullets { list-style: none; padding: 0; }
+  .exp-bullets li {
+    font-size: 0.875rem;
+    color: #c0c7d4;
+    padding: 0.28rem 0 0.28rem 1.1rem;
+    position: relative;
+    line-height: 1.55;
+  }
+  .exp-bullets li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--c-accent);
+    font-weight: 700;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1rem;
+  }
+  .skill-group {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    transition: border-color 0.2s;
+  }
+  .skill-group:hover { border-color: rgba(0,180,216,0.25); }
+  .skill-cat {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    color: var(--c-teal);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag {
+    background: rgba(0,180,216,0.08);
+    border: 1px solid rgba(0,180,216,0.18);
+    border-radius: 5px;
+    padding: 0.22rem 0.55rem;
+    font-size: 0.7rem;
+    color: #a8d8e8;
+  }
+
+  /* CERTS */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+    gap: 0.75rem;
+  }
+  .cert-pill {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: #c0c7d4;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    transition: border-color 0.2s;
+  }
+  .cert-pill:hover { border-color: rgba(233,69,96,0.35); }
+  .cert-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--c-accent);
+    flex-shrink: 0;
+  }
+
+  /* EDUCATION */
+  .edu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--c-border);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .edu-row:last-child { border-bottom: none; }
+  .edu-inst { font-weight: 500; font-size: 0.95rem; color: #fff; }
+  .edu-prog { font-size: 0.8rem; color: var(--c-muted); margin-top: 0.2rem; }
+  .edu-year {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--c-teal);
+    white-space: nowrap;
+  }
+
+  /* PUBLICATION */
+  .pub-card {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    transition: border-color 0.2s;
+  }
+  .pub-card:hover { border-color: rgba(0,180,216,0.25); }
+  .pub-journal {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    color: var(--c-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.45rem;
+  }
+  .pub-title { font-size: 0.93rem; font-weight: 500; color: #e8eaf0; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border-top: 1px solid var(--c-border);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--c-muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; }
+    .contact-block { text-align: left; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">TR // Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="mailto:tawhidurrahmanence@gmail.com">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <div class="hero-name">Tawhidur<br><span>Rahman</span></div>
+      <div class="hero-title">// Senior Cybersecurity &amp; AI Governance Specialist</div>
+      <div class="hero-tagline">Nearly two decades leading national CIRT operations, digital forensics, and security strategy across government, UN, and World Bank mandates. Driving enterprise security outcomes in the US market.</div>
+    </div>
+    <div class="contact-block">
+      <span>Centereach, NY 11720</span>
+      <a href="tel:9142073345">(914) 207-3345</a>
+      <a href="mailto:tawhidurrahmanence@gmail.com">tawhidurrahmanence@gmail.com</a>
+      <a href="https://linkedin.com/in/YOUR-LINKEDIN-SLUG" target="_blank" rel="noopener">LinkedIn Profile</a>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><div class="stat-num">18<span>+</span></div><div class="stat-label">Years in Cyber</div></div>
+    <div class="stat"><div class="stat-num">50<span>%</span></div><div class="stat-label">IR Time Reduction</div></div>
+    <div class="stat"><div class="stat-num">1K<span>+</span></div><div class="stat-label">Personnel Trained</div></div>
+    <div class="stat"><div class="stat-num">30<span>%</span></div><div class="stat-label">Security Effectiveness ↑</div></div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section" id="experience">
+    <div class="sec-head"><div class="sec-label">Experience</div><div class="sec-line"></div></div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-org">CVS Health</div>
+        <div class="exp-period">Mar 2025 – Present</div>
+      </div>
+      <div class="exp-role">// Shift Manager · Farmingville, NY</div>
+      <ul class="exp-bullets">
+        <li>Operations leadership — team supervision, scheduling, loss prevention, and regulatory compliance in a fast-paced environment</li>
+        <li>Demonstrates cross-functional adaptability and leadership transferability across operational domains</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-org">Digital Bangladesh – ICT Division</div>
+        <div class="exp-period">Jun 2019 – Nov 2024</div>
+      </div>
+      <div class="exp-role">// Senior Technical Specialist · Bangladesh</div>
+      <ul class="exp-bullets">
+        <li>Led South Asia's CSIRT — overseeing breach investigations and national cyber-defense strategy using NIST frameworks</li>
+        <li>Administered SIEM, IDS/IPS, next-generation firewalls, and endpoint protection across government networks</li>
+        <li>Developed digital forensics procedures and compliance frameworks standardized across the ICT Division</li>
+        <li>Delivered security awareness training to 1,000+ government personnel, elevating organizational security posture</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-org">UNODC</div>
+        <div class="exp-period">Jan 2022 – Jul 2022</div>
+      </div>
+      <div class="exp-role">// Senior Consultant, Ransomware · Vienna</div>
+      <ul class="exp-bullets">
+        <li>Delivered hands-on cybercrime investigation and ransomware training to law enforcement across Southeast Asia &amp; Pacific</li>
+        <li>Produced analytical ransomware threat-landscape report that guided regional stakeholders in updating security policies</li>
+        <li>Organized expert meetings resulting in a joint regional response framework across participating nations</li>
+        <li>Provided bilateral technical consultations strengthening national ransomware response and prevention capabilities</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-org">The World Bank</div>
+        <div class="exp-period">Jul 2015 – Jun 2019</div>
+      </div>
+      <div class="exp-role">// Team Leader, National CIRT Bangladesh</div>
+      <ul class="exp-bullets">
+        <li>Reduced incident response time by 50% by building and directing the national CIRT team with Python automation and NIST workflows</li>
+        <li>Increased security effectiveness by 30% via continuous SIEM monitoring and ISO 27001-aligned security controls</li>
+        <li>Enhanced cyber defense by refining incident response processes and launching organization-wide awareness initiatives</li>
+        <li>Managed full SOC operations — threat hunting, forensic analysis, and vulnerability management — reducing unresolved vulnerabilities by 20%</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section" id="skills">
+    <div class="sec-head"><div class="sec-label">Core Skills</div><div class="sec-line"></div></div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-cat">Security Operations</div>
+        <div class="skill-tags">
+          <span class="tag">SIEM (Splunk, QRadar)</span>
+          <span class="tag">IDS/IPS</span>
+          <span class="tag">Threat Intelligence</span>
+          <span class="tag">Incident Response</span>
+          <span class="tag">Digital Forensics</span>
+          <span class="tag">Endpoint Protection</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-cat">Frameworks &amp; Standards</div>
+        <div class="skill-tags">
+          <span class="tag">NIST</span>
+          <span class="tag">ISO 27001</span>
+          <span class="tag">MITRE ATT&amp;CK</span>
+          <span class="tag">GDPR</span>
+          <span class="tag">HIPAA</span>
+          <span class="tag">PCI-DSS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-cat">Technical</div>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Malware Analysis</span>
+          <span class="tag">Reverse Engineering</span>
+          <span class="tag">Network Security</span>
+          <span class="tag">Cloud Security</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-cat">OSINT</div>
+        <div class="skill-tags">
+          <span class="tag">Maltego</span>
+          <span class="tag">Shodan</span>
+          <span class="tag">Censys</span>
+          <span class="tag">Google Dorking</span>
+          <span class="tag">Sentinel Hub</span>
+          <span class="tag">LinkedIn Intel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="section" id="certs">
+    <div class="sec-head"><div class="sec-label">Certifications</div><div class="sec-line"></div></div>
+    <div class="certs-grid">
+      <div class="cert-pill"><div class="cert-dot"></div>EnCE</div>
+      <div class="cert-pill"><div class="cert-dot"></div>HCISPP</div>
+      <div class="cert-pill"><div class="cert-dot"></div>HIPAA Officer</div>
+      <div class="cert-pill"><div class="cert-dot"></div>GDPR Certified</div>
+      <div class="cert-pill"><div class="cert-dot"></div>ACE</div>
+      <div class="cert-pill"><div class="cert-dot"></div>CFIP</div>
+      <div class="cert-pill"><div class="cert-dot"></div>CIMP</div>
+      <div class="cert-pill"><div class="cert-dot"></div>CECFE</div>
+      <div class="cert-pill"><div class="cert-dot"></div>SCCISP</div>
+      <div class="cert-pill"><div class="cert-dot"></div>Level 1 Intel Analyst</div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section" id="education">
+    <div class="sec-head"><div class="sec-label">Education</div><div class="sec-line"></div></div>
+    <div class="edu-row">
+      <div><div class="edu-inst">Duke University</div><div class="edu-prog">Cybersecurity Leadership Program (Executive Education)</div></div>
+      <div class="edu-year">2023</div>
+    </div>
+    <div class="edu-row">
+      <div><div class="edu-inst">Carnegie Mellon University</div><div class="edu-prog">Cyber Intelligence for Decision Makers</div></div>
+      <div class="edu-year">2019 – 2021</div>
+    </div>
+    <div class="edu-row">
+      <div><div class="edu-inst">The Wharton School</div><div class="edu-prog">Customer Analytics</div></div>
+      <div class="edu-year">2019 – 2020</div>
+    </div>
+    <div class="edu-row">
+      <div><div class="edu-inst">Independent University, Dhaka</div><div class="edu-prog">BSc in Computer Science</div></div>
+      <div class="edu-year">2000 – 2004</div>
+    </div>
+  </div>
+
+  <!-- PUBLICATION -->
+  <div class="section">
+    <div class="sec-head"><div class="sec-label">Recent Publication</div><div class="sec-line"></div></div>
+    <div class="pub-card">
+      <div class="pub-journal">JCSA · 2025 · Co-authored</div>
+      <div class="pub-title">Dense U-Net for Prostate Zonal Segmentation on T2-Weighted MRI</div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<footer>
+  &copy; 2025 Tawhidur Rahman &nbsp;·&nbsp; Centereach, NY &nbsp;·&nbsp; tawhidurrahmanence@gmail.com
+</footer>
+
+</body>
+</html>
